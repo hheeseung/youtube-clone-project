@@ -1,0 +1,13 @@
+ul {
+  padding: 0;
+}
+
+.videolist {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  background-color: #ffffff;
+}

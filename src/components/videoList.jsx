@@ -4,7 +4,7 @@ import VideoItem from './videoItem';
 
 const VideoList = ({videos}) => {
   return (
-    <ul>
+    <ul className={styles.videolist}>
       {videos.map((video) => (
         <VideoItem key={video.id} video={video} />
       ))}

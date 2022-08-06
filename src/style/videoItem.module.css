@@ -1,0 +1,25 @@
+p {
+  margin: 0;
+}
+
+.videoItem {
+  width: 430px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 430px;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.channel {
+  font-size: 15px;
+  color: #7c7c7c;
+  margin-bottom: 40px;
+}

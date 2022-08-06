@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import {useState} from 'react';
 import Header from './components/header';
+import Navbar from './components/navbar';
 import VideoList from './components/videoList';
 
 function App() {
@@ -19,10 +20,10 @@ function App() {
       .then((response) => response.json())
       .then((result) => setVideos(result.items));
   }, []);
-  console.log(videos);
   return (
     <>
       <Header />
+      <Navbar />
       <VideoList videos={videos} />
     </>
   );
