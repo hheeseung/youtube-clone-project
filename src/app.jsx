@@ -1,7 +1,31 @@
+import {useEffect} from 'react';
+import {useState} from 'react';
 import Header from './components/header';
+import VideoList from './components/videoList';
 
 function App() {
-  return <Header />;
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
+
+    fetch(
+      'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyCz_IZxE2aLJTiSCcyb0VUrqFyBQEh64KY',
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setVideos(result.items));
+  }, []);
+  console.log(videos);
+  return (
+    <>
+      <Header />
+      <VideoList videos={videos} />
+    </>
+  );
 }
 
 export default App;
