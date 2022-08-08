@@ -1,5 +1,5 @@
-import {useEffect} from 'react';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
+import './app.module.css';
 import Header from './components/header';
 import Navbar from './components/navbar';
 import VideoList from './components/videoList';
