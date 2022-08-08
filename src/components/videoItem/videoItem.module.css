@@ -3,13 +3,13 @@ p {
 }
 
 .videoItem {
-  width: 430px;
+  width: 400px;
   list-style: none;
   cursor: pointer;
 }
 
 .thumbnail {
-  width: 430px;
+  width: 400px;
 }
 
 .title {
