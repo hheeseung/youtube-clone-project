@@ -3,7 +3,7 @@ import styles from './videoItem.module.css';
 
 const VideoItem = ({video: {snippet}}) => {
   return (
-    <li className={styles.videoItem}>
+    <li className={styles.videoItem} o>
       <img
         src={snippet.thumbnails.medium.url}
         alt='thumbnail'
