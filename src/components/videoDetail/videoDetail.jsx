@@ -15,9 +15,13 @@ const VideoDetail = ({video, video: {snippet}}) => {
       <div className={styles.channelInfo}>
         <h1 className={styles.title}>{snippet.title}</h1>
         <div className={styles.channel}>
-          <div className={styles.channelThumbnail}></div>
-          <h4 className={styles.channelTitle}>{snippet.channelTitle}</h4>
-          <button className={styles.subscribe}>Subscribe</button>
+          <div className={styles.channelGroup}>
+            <div className={styles.channelThumbnail}></div>
+            <h4 className={styles.channelTitle}>{snippet.channelTitle}</h4>
+          </div>
+          <div>
+            <button className={styles.subscribe}>Subscribe</button>
+          </div>
         </div>
       </div>
       <pre className={styles.publishedAt}>

@@ -52,3 +52,18 @@
   border: 1px solid #cccccc;
   background-color: #f8f8f8;
 }
+
+@media screen and (max-width: 870px) {
+  .title,
+  .upload,
+  .alert,
+  .profile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .search__input {
+    width: fit-content;
+  }
+}
