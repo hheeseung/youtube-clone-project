@@ -4,11 +4,7 @@ ul {
 }
 
 .videolist {
-  position: absolute;
-  top: 50px;
-  left: 70px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background-color: #f7f7f7;
 }

@@ -1,0 +1,58 @@
+.detail {
+  padding: 20px;
+}
+
+.video {
+  margin-bottom: 10px;
+  border: none;
+}
+
+.channelInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 10px 0;
+}
+
+.channel {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 10px;
+  border: 1px solid #ececec;
+  border-radius: 5px;
+}
+
+.channelThumbnail {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #6495ed;
+}
+
+.channelTitle {
+  margin-left: 0.5em;
+  margin-right: 4em;
+}
+
+.subscribe {
+  padding: 10px;
+  border: none;
+  border-radius: 2px;
+  background-color: #c00;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.publishedAt {
+  font-size: 15px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.description {
+  margin-bottom: 20px;
+  white-space: pre;
+}

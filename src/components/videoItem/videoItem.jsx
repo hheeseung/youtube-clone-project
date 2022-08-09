@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from './videoItem.module.css';
 
-const VideoItem = ({video: {snippet}}) => {
+const VideoItem = ({video, video: {snippet}, onVideoClick}) => {
   return (
-    <li className={styles.videoItem} o>
+    <li
+      className={styles.videoItem}
+      onClick={() => {
+        onVideoClick(video);
+      }}
+    >
       <img
         src={snippet.thumbnails.medium.url}
         alt='thumbnail'

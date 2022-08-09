@@ -2,3 +2,18 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.content {
+  position: absolute;
+  top: 50px;
+  left: 70px;
+  display: flex;
+}
+
+.detail {
+  flex: 1 1 75%;
+}
+
+.list {
+  flex: 1 1 25%;
+}

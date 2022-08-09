@@ -6,7 +6,7 @@ const VideoList = ({videos, onVideoClick}) => {
   return (
     <ul className={styles.videolist}>
       {videos.map((video) => (
-        <VideoItem key={video.id} video={video} />
+        <VideoItem key={video.id} video={video} onVideoClick={onVideoClick} />
       ))}
     </ul>
   );
