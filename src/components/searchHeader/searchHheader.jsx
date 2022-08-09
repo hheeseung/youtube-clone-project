@@ -1,7 +1,16 @@
 import React from 'react';
-import styles from './header.module.css';
+import {useRef} from 'react';
+import styles from './searchHeader.module.css';
 
-const Header = () => {
+const SearchHeader = ({onSearch}) => {
+  const inputRef = useRef();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const value = inputRef.current.value;
+    onSearch(value);
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.leftside}>
@@ -13,8 +22,9 @@ const Header = () => {
         </span>
         <span className={styles.title}>YouTube</span>
       </div>
-      <form className={styles.search}>
+      <form className={styles.search} onSubmit={onSubmit}>
         <input
+          ref={inputRef}
           type='text'
           placeholder='검색'
           className={styles.search__input}
@@ -38,4 +48,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default SearchHeader;
