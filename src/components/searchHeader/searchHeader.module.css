@@ -66,4 +66,8 @@
   .search__input {
     width: fit-content;
   }
+
+  .bars {
+    margin: 0 10px;
+  }
 }
