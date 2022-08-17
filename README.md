@@ -1,28 +1,60 @@
 # YouTube Clone Project
 
-## 사용 기술
+## 📝 About Project
 
-1. Skills: React JS, PostCSS
-2. Use: Postman, YouTube Data API
-3. Deployment: Netlify
+YouTube Data API를 이용한 유튜브 사이트의 클론 코딩 프로젝트입니다. 인기 목록과 검색 API를 사용했으며 한국의 인기동영상 상위 30개의 데이터를 가져와 메인화면에 뿌린 뒤, 영상 클릭 시 해당 영상을 띄우고 사이드바에 인기 동영상 목록을 뜨게 하였습니다. 또한 모바일에서도 화면이 잘 나타날 수 있도록 반응형으로 제작하였습니다.
 
-## 기능
+![youtube-clone-project](https://user-images.githubusercontent.com/87454393/185095134-b6f646fe-19c2-4ad2-a729-65511fc8a57e.png)
+![youtube-clone-project-detail](https://user-images.githubusercontent.com/87454393/185095144-d0b26e50-4a7a-4ba7-86dc-188b573716ce.png)
 
-1. YouTube Data API를 통해 가져온 인기동영상 상위 30개를 메인화면에 노출
-2. 메인화면의 영상 클릭 시 상세 화면으로 화면 전환
-3. `상세 화면`: 동영상, 제목, 채널명, 더보기란에 기재된 정보, 게시 날짜에 대한 정보
-4. 상세화면 옆단에는 인기동영상 30개의 썸네일과 제목, 채널명이 적힌 리스트가 보여짐
-5. `검색`: 검색하고자 하는 키워드로 상위 30개의 결과를 화면에 노출
+## 🖥 Environment
 
-## To Do List
+1. Skills: `React JS`, `PostCSS`
+2. Deploy: `Netlify` - [Click Here To See Demo](https://youtube-clone-coding-project.netlify.app/)
 
-- [x] 컴포넌트 나누기 - 기능별로 큰그림 그리기
-- [x] `fetch` → YouTube API로부터 데이터 받아오기 (인기 동영상 상위 25개 불러오기)
-- [x] 받아온 데이터를 화면에 바둑형식으로 뿌리기 - 썸네일, 영상제목, 채널 표기
-- [x] 영상 클릭 시 화면에 `iframe`을 통해 해당 영상과 제목, 채널명, 더보기 설명 등 표시
-- [x] 영상 옆단에 추천 목록(=메인화면에 뿌려줬던 영상들) 표시
-- [x] 검색 기능 구현하기
+## 💡 Code
 
-## 배포
+### youtube.js
 
-https://youtube-clone-coding-project.netlify.app/
+```javascript
+class Youtube {
+  constructor(key) {
+    this.key = key;
+    this.getRequestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+    };
+  }
+
+  async search(query) {
+    const response = await fetch(
+      `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=${query}&type=video&key=${this.key}`,
+      this.getRequestOptions
+    );
+    const result = await response.json();
+    return result.items.map((item) => ({...item, id: item.id.videoId}));
+  }
+
+  async mostPopular() {
+    const response = await fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=30&regionCode=KR&key=${this.key}`,
+      this.getRequestOptions
+    );
+    const result = await response.json();
+    return result.items;
+  }
+}
+
+export default Youtube;
+```
+
+- React는 View 영역에 해당하기 때문에 컴포넌트 안의 데이터 통신을 따로 분리하여 밖으로 빼주었습니다.
+- 보안을 위해 API Key값 역시 다른 파일로 빼주어 배포 시 공개되지 않도록 하였습니다.
+- 검색 코드에서 id의 항목을 videoId로 한정하여 검색 결과가 영상만 나타날 수 있도록 하였습니다.
+
+## ✏ 추가 구현 사항
+
+- [ ] 라우팅으로 화면 간 이동 구현하기
+- [ ] 좋아요 수, 조회수 불러오기
+- [ ] 상세 화면에서 사이드바에 나타나는 영상 목록 개수 줄이기
+- [ ] axios를 사용하여 데이터 받아오기
