@@ -7,6 +7,7 @@ const VideoItem = memo(({video, video: {snippet}, onVideoClick}) => {
       className={styles.videoItem}
       onClick={() => {
         onVideoClick(video);
+        window.scrollTo(0, 0);
       }}
     >
       <img
