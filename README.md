@@ -2,15 +2,14 @@
 
 ## 📝 About Project
 
-YouTube Data API를 이용한 유튜브 사이트의 클론 코딩 프로젝트입니다. 인기 목록과 검색 API를 사용했으며 한국의 인기동영상 상위 30개의 데이터를 가져와 메인화면에 뿌린 뒤, 영상 클릭 시 해당 영상을 띄우고 사이드바에 인기 동영상 목록을 뜨게 하였습니다. 또한 모바일에서도 화면이 잘 나타날 수 있도록 반응형으로 제작하였습니다.
+YouTube Data API를 이용한 유튜브 사이트의 클론 코딩 프로젝트입니다. 리액트에서의 API 통신을 공부하기 위해 제작하게 되었습니다. 모바일에서도 화면이 잘 나타날 수 있도록 반응형으로 제작하였습니다.
 
-![youtube-clone-project](https://user-images.githubusercontent.com/87454393/185095134-b6f646fe-19c2-4ad2-a729-65511fc8a57e.png)
-![youtube-clone-project-detail](https://user-images.githubusercontent.com/87454393/185095144-d0b26e50-4a7a-4ba7-86dc-188b573716ce.png)
+![youtube-clone](https://user-images.githubusercontent.com/87454393/192952407-e742c7de-5943-47b0-b5c1-c8ccd443878c.gif)
 
 ## 🖥 Environment
 
-1. Skills: `React JS`, `PostCSS`
-2. Deploy: `Netlify` - [Click Here To See Demo](https://youtube-clone-coding-project.netlify.app/)
+1. Skills: PostCSS, React JS
+2. Deploy: [Click Here To See Demo](https://youtube-clone-coding-project.netlify.app/)
 
 ## 💡 Code
 
@@ -48,13 +47,26 @@ class Youtube {
 export default Youtube;
 ```
 
-- React는 View 영역에 해당하기 때문에 컴포넌트 안의 데이터 통신을 따로 분리하여 밖으로 빼주었습니다.
-- 보안을 위해 API Key값 역시 다른 파일로 빼주어 배포 시 공개되지 않도록 하였습니다.
+- 의존성 주입: API 통신 구현 부분은 따로 분리하여 컴포넌트에 주입하는 방식으로 구현했습니다.
 - 검색 코드에서 id의 항목을 videoId로 한정하여 검색 결과가 영상만 나타날 수 있도록 하였습니다.
+- 성능개선: useMemo, useCallback의 사용으로 불필요한 렌더링을 줄이도록 하였습니다.
 
-## ✏ 추가 구현 사항
+## During the Project
 
-- [ ] 라우팅으로 화면 간 이동 구현하기
+### 어려웠던 점
+
+- 의존성 주입을 위해 API 데이터 통신을 따로 분리하는 작업이 어려웠습니다.
+- props 전달을 통해 API 데이터를 받아서 화면을 구성하는 부분이 헷갈리기도 하였습니다.
+
+### 해결방식
+
+- 의존성 주입의 개념부터 알아보고 이 작업의 필요성을 이해한 후 막히는 부분은 검색을 통해서 컴포넌트로의 주입 구현을 하였습니다.
+- props를 통한 컴포넌트 간의 값 전달 시 프로세스를 이해하도록 노력했습니다.
+
+### ✏ 추가 구현 또는 개선하고 싶은 부분
+
 - [ ] 좋아요 수, 조회수 불러오기
-- [ ] 상세 화면에서 사이드바에 나타나는 영상 목록 개수 줄이기
 - [ ] axios를 사용하여 데이터 받아오기
+- [ ] 상세 화면에서 사이드바에 나타나는 영상 목록 개수 줄이기
+- [ ] 화면 간 이동을 Router를 써서 구현해보기
+- [ ] API를 통해 데이터를 받아올 때 좀 더 빨리 받아올 수 있는 방법?
